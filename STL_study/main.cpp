@@ -17,12 +17,7 @@ int main(int argc, const char * argv[]) {
         list.invert(i);
     }
     list.invert(999912);
-    bool Bfind = list.search(999912);
-    if (Bfind) {
-        cout << "找到了"<<endl;
-    }
-    else{
-        cout << "未找到了"<<endl;
-    }
+    list.search(999912);
+    list.deleteNode(5);
     return 0;
 }

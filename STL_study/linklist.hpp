@@ -48,20 +48,55 @@ public:
         return false;
     }
     
-     bool search(T searchdata){
+     Node *search(T searchdata){
         if (header) {
             if (header->vaule == searchdata) {
-                return true;
+                return header;
             }
             Node *p = header->next;
             if (p) {
                 while (p !=nullptr) {
                     if (p->vaule == searchdata) {
-                        return true;
+                        return p;
                     }
                     p = p ->next;
                 }
             }
+        }
+        return nullptr;
+    }
+    
+    bool deleteNode(T Deleatedata){
+        Node *temp = nullptr;
+        if (header) {
+            if(header->vaule == Deleatedata){
+                temp = header;
+                header = header->next;
+                delete temp;
+                return  true;
+            }
+            else{
+                Node *p = header->next;
+                if (p->vaule == Deleatedata) {
+                    temp = p;
+                    header->next = p->next;
+                    delete p;
+                }
+                else{
+                    while (p->vaule != Deleatedata) {
+                        
+                        if (p->next->vaule == Deleatedata) {
+                            temp = p->next;
+                            p->next = p->next->next;
+                            return  true;
+                        }
+                        else{
+                            p = p->next;
+                        }
+                    }
+                }
+            }
+            return true;
         }
         return false;
     }
@@ -76,5 +111,6 @@ public:
             delete header;
         }
     }
+    
 };
 #endif /* linklist_hpp */
