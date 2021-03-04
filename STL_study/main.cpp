@@ -6,9 +6,23 @@
 //
 
 #include <iostream>
-
+#include "linklist.hpp"
+using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    
+    listlist<int> list;
+    for (int i=0; i<=10; i++) {
+        list.invert(i);
+    }
+    list.invert(999912);
+    bool Bfind = list.search(999912);
+    if (Bfind) {
+        cout << "找到了"<<endl;
+    }
+    else{
+        cout << "未找到了"<<endl;
+    }
     return 0;
 }
